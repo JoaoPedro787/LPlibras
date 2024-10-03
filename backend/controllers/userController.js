@@ -8,7 +8,7 @@ const newUser = async (req, res, next) => {
     const { error, data } = await to(userModel.newUser(nome, email, senha));
 
     if (error) {
-
+        //Fazer implementação rollback
         if (error.code === 'ER_DUP_ENTRY') {
             return next(new conflictError('Usuário já cadastrado'));
         }

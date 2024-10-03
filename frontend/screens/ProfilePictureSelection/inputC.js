@@ -6,23 +6,31 @@ import Styles from "./ProfilePictureSelectionStyle";
 import Inputs from "../../src/components/inputs";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
-const size = 30;
-
 export default class Input extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+
+    this.state = {
+      isEditable: false
+    }
   }
   render() {
-    const {icon} = this.props;
+    const { value, handleDigit, indice } = this.props;
+    const { isEditable } = this.state;
 
     return (
       <View style={Inputs.InputLightDarkGrayWithImage}>
         {/* Input de nome */}
-        <TextInput style={Styles.inputField} placeholder={this.props.placeholder} />
+        <TextInput 
+        style={Styles.inputField} 
+        value={value} 
+        editable={isEditable} 
+        onChangeText={(text) => handleDigit(text, indice)} />
 
         {/* Editar nome */}
-        <TouchableOpacity>
-          <AntDesign name={icon} size={size} color="gray" />
+        <TouchableOpacity
+          onPress={() => this.setState(() => ({ isEditable: true }))}>
+          <AntDesign name={'edit'} size={30} color="gray" />
         </TouchableOpacity>
       </View>
     );

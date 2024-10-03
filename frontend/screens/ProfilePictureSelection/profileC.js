@@ -15,8 +15,6 @@ const getImage = (image) => {
             return require("../../assets/images/profiles/ProfileCyan.png");
         case "ProfileLightGreen":
             return require("../../assets/images/profiles/ProfileLightGreen.png");
-        case "ProfileDarkGreen":
-            return require("../../assets/images/profiles/ProfileDarkGreen.png");
         case "ProfileBlue":
             return require("../../assets/images/profiles/ProfileBlue.png");
         case "ProfilePurple":
@@ -25,7 +23,9 @@ const getImage = (image) => {
 };
 
 export default class Profile extends Component {
-
+    constructor(props) {
+        super(props);
+    }
     render() {
         const { imgName, onPress } = this.props;
 

@@ -15,6 +15,32 @@ const getIdByEmail = async (email) => {
     return result;
 }
 
+const statusTrigger = async (id) => {
+    const [result] = await connection.execute(`
+        INSERT INTO 
+        statusUsuario (i_id_usuario) 
+        VALUES (?)`,
+        [id]);
+
+    if (result.affectedRows < 1) {
+        throw new notFound();
+    }
+}
+
+const categoriaTrigger = async (id) => {
+    const [result] = await connection.execute(`
+        INSERT INTO 
+        categoriaUsuario (i_id_categoria,i_id_usuario)
+        VALUES (1,?)`,
+        [id]);
+
+    if (result.affectedRows < 1) {
+        throw new notFound();
+    }
+}
+
 module.exports = {
-    getIdByEmail
+    getIdByEmail,
+    statusTrigger,
+    categoriaTrigger
 }

@@ -1,4 +1,4 @@
-const { conflictError, notFound } = require('../helpers/apiErrors');
+const { notFound } = require('../helpers/apiErrors');
 
 const connection = require('./connection');
 
@@ -12,12 +12,17 @@ const newUser = async (nome, email, senha) => {
     )
 
     if (result.affectedRows < 1) {
-        throw new conflictError();
+        throw new notFound();
     }
 
     const [getId] = await userService.getIdByEmail(email);
 
+    await userService.statusTrigger(getId.i_id_usuario);
+    await userService.categoriaTrigger(getId.i_id_usuario);
+
+    //Adicionar rollback futuramente
     return getId;
+
 };
 
 const userCheck = async (email, senha) => {

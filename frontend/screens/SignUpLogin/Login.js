@@ -7,13 +7,13 @@ import Container from "../../src/components/container";
 import Styles from "./SignUpLoginStyle";
 import Inputs from "../../src/components/inputs";
 import Buttons from "../../src/components/buttons";
-import Texts, { ReadyTexts } from "../../src/components/texts";
+import { ReadyTexts } from "../../src/components/texts";
 
 // Icons
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 //Api
-import { checkUser, newUser } from "../../services/userService.js";
+import { checkUser } from "../../services/userService.js";
 
 //Async
 import { storeUserId } from "../../utils/AsyncStorageFunctions.js";

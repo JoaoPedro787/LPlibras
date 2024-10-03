@@ -7,7 +7,7 @@ import Container from "../../src/components/container";
 import Styles from "./SignUpLoginStyle";
 import Inputs from "../../src/components/inputs";
 import Buttons from "../../src/components/buttons";
-import Texts, { ReadyTexts } from "../../src/components/texts";
+import { ReadyTexts } from "../../src/components/texts";
 
 // Icons
 import Ionicons from '@expo/vector-icons/Ionicons';

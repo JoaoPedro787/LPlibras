@@ -4,7 +4,7 @@ const Colors = {
     LightBlue: '#5395ff',
     Orange: '#f7ad1a',
     LightGray:'#f5f5f5',
-    DarkGray:'#dfe1e0',
+    DarkGray:'#d1d1d1',
     Gradient:['#3580f9','#5099f7','#96def5'],
     ProfileGradient:['#3580f9','#74a9ff'],
     ModuleContainerColor:'#e9e9e9',
