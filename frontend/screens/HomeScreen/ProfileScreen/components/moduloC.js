@@ -8,8 +8,9 @@ import Styles from "../styles/moduleStyle";
 //Icons
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-//Function
-import { imagesPath } from "../images/imgFunction";
+
+//Image Path
+import { imagesPath } from "../../globalUtils/getCategoryImages";
 
 export default class ModuloC extends Component {
     constructor(props) {

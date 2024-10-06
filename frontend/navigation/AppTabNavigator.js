@@ -42,7 +42,7 @@ const AppTabNavigator = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="user" size={iconSize} color={color} />
+            <FontAwesome name="home" size={iconSize} color={color} />
           ),
         }}>
         {() => (

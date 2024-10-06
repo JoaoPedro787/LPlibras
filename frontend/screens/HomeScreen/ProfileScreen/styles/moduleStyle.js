@@ -51,7 +51,6 @@ const Styles = StyleSheet.create({
     },
     progressBarFill: {
         height: "100%",
-        width: '50%'
     },
     moduleContainer: {
         margin: 20,
