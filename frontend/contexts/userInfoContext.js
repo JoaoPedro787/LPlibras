@@ -1,11 +1,13 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import { Alert } from "react-native";
-import { getUserStatus } from '../../../../services/userStatusService';
-import { getUserId } from '../../../../utils/AsyncStorageFunctions';
+import { getUserStatus } from '../services/userStatusService';
+import { getUserId } from '../utils/AsyncStorageFunctions';
 import { useFocusEffect } from '@react-navigation/native';
 
-const useProfileData = () => {
+export const UserInfoContext = createContext({});
+
+export const UserInfoProvider = ({ children }) => {
   const [profilePath, setProfilePath] = useState('');
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -51,12 +53,9 @@ const useProfileData = () => {
     }
   }, [userData]);
 
-  return {
-    profilePath,
-    isLoading,
-    progressData,
-    userInfo,
-  };
-};
-
-export default useProfileData;
+  return (
+    <UserInfoContext.Provider value={{ isLoading, progressData, profilePath, userInfo }}>
+      {children}
+    </UserInfoContext.Provider>
+  )
+}

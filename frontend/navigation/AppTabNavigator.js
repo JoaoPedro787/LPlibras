@@ -6,9 +6,13 @@ import { FontAwesome } from '@expo/vector-icons'; // Importa FontAwesome
 import TabHeaderStyle from './TabStyle';
 
 // Telas
-import MainScreen from '../screens/HomeScreen/MainScreen/MainScreen';
+import MainScreenNavigator from '../screens/HomeScreen/MainScreen/MainScreenNavigator';
 import ProfileScreen from '../screens/HomeScreen/ProfileScreen/ProfileScreen';
-import GlossaryScreen from '../screens/HomeScreen/GlossaryScreen/GlossaryScreen';
+import GlossaryNavigator from '../screens/HomeScreen/GlossaryScreen/GlossaryNavigator';
+
+
+import { UserInfoProvider } from '../contexts/userInfoContext';
+
 
 // Estilo para os ícones
 const iconSize = isTablet ? 50 : 30;
@@ -20,29 +24,37 @@ const AppTabNavigator = () => {
     <Tab.Navigator screenOptions={TabHeaderStyle}>
       <Tab.Screen
         name="Perfil"
-        component={ProfileScreen}
         options={{
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <FontAwesome name="user" size={iconSize} color={color} />
           ),
-        }}
-      />
+        }}>
+        {() => (
+          <UserInfoProvider>
+            <ProfileScreen />
+          </UserInfoProvider>
+        )}
+      </Tab.Screen>
 
       <Tab.Screen
-        name="Início"
-        component={MainScreen}
+        name="Inicio"
         options={{
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="home" size={iconSize} color={color} />
+            <FontAwesome name="user" size={iconSize} color={color} />
           ),
-        }}
-      />
+        }}>
+        {() => (
+          <UserInfoProvider>
+            <MainScreenNavigator />
+          </UserInfoProvider>
+        )}
+      </Tab.Screen>
 
       <Tab.Screen
         name="Glossário"
-        component={GlossaryScreen}
+        component={GlossaryNavigator}
         options={{
           headerShown: false,
           tabBarIcon: ({ color }) => (

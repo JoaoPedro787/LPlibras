@@ -1,5 +1,5 @@
 const userStatusModel = require('../models/userStatusModel');
-const { conflictError, notFound } = require('../helpers/apiErrors');
+const { notFound } = require('../helpers/apiErrors');
 const { to, errorHandler } = require('../utils/asyncHandler');
 
 const getUserStatus = async (req, res, next) => {

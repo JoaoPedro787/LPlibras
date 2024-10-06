@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import { View, Text, Image } from "react-native";
+
+//Styles
 import { LinearGradient } from "expo-linear-gradient";
 import Colors from "../../../../styles/colors";
 import Styles from "../styles/moduleStyle";
+//Icons
+
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+//Function
+import { imagesPath } from "../images/imgFunction";
 
 export default class ModuloC extends Component {
     constructor(props) {
@@ -30,7 +36,7 @@ export default class ModuloC extends Component {
                                 {/* Se tiver barra de progresso, renderiza imagem */}
                                 {statusText ? (
                                     <Image
-                                        source={require('../../../../assets/images/homescreen/lessons/alimento.png')}
+                                        source={imagesPath[el.nome_categoria]}
                                         style={Styles.imgStyle}
                                     />
                                 ) : (

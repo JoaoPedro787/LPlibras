@@ -2,6 +2,8 @@ import React from "react";
 import { isTablet } from "../../../../utils/utils";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from '@react-navigation/native';
+
 
 // Styles
 import Styles from "../styles/ProfileSectionStyle";
@@ -27,7 +29,9 @@ const images = (image) => {
     }
 };
 
-const ProfileSection = ({ navigation, item, profile }) => {
+const ProfileSection = ({ item, profile }) => {
+    const navigation = useNavigation();
+    
     return (
         <View style={Styles.ProfileInfoContainer}>
             <LinearGradient
@@ -38,7 +42,7 @@ const ProfileSection = ({ navigation, item, profile }) => {
                     onPress={() => navigation.navigate('Seleção de foto de perfil')}
                     style={{ paddingTop: 35, alignSelf: "flex-end", marginRight: 15 }}
                 >
-                    {/* Editar perfil, implementar função para mudar apenas do usuário */}
+                    {/* Editar perfil */}
                     <AntDesign name="edit" size={isTablet ? 50 : 30} color={Colors.Orange} />
                 </TouchableOpacity>
 

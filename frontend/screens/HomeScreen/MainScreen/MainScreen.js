@@ -1,9 +1,15 @@
 import React from "react";
-import DrawerNavigation from "../../../navigation/AppDrawerNavigator";
+import { SafeAreaView } from "react-native";
 
-const MainScreen = ({ navigation }) => {
-    return (
-        <DrawerNavigation/>
-    );
+
+
+const ProfileScreen = () => {
+
+  return (
+    <SafeAreaView style={{ flex: 1, paddingBottom: 90 }}>
+      
+    </SafeAreaView>
+  );
 };
-export default MainScreen;
+
+export default ProfileScreen;

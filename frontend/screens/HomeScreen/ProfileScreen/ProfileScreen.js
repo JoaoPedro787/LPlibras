@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, SafeAreaView, ActivityIndicator, FlatList } from "react-native";
 
 // Styles
 import Colors from "../../../styles/colors";
 
-// Hooks
-import useProfileData from './hooks/ProfileData';
-
 // Classes
 import ModuloC from "./components/moduloC";
 import ProfileSection from "./components/profileSectionC";
 
-const ProfileScreen = ({ navigation }) => {
-  const { profilePath, isLoading, progressData, userInfo } = useProfileData();
+// Context
+import { UserInfoContext } from "../../../contexts/userInfoContext";
+
+const ProfileScreen = () => {
+  const { profilePath, isLoading, progressData, userInfo } = useContext(UserInfoContext);
 
   return (
     <SafeAreaView style={{ flex: 1, paddingBottom: 90 }}>
@@ -25,12 +25,13 @@ const ProfileScreen = ({ navigation }) => {
       ) : (
         <View style={{ flex: 1 }}>
           {/* Seção do usuário */}
-          <ProfileSection item={userInfo} profile={profilePath} navigation={navigation} />
+          <ProfileSection item={userInfo} profile={profilePath} />
 
           {/* Status do progresso do usuário */}
           <View style={{ flex: 1 }}>
             <FlatList
               data={progressData}
+              showsVerticalScrollIndicator={false}
               renderItem={(item) => <ModuloC item={item.item} profile={profilePath} />}
               keyExtractor={(el) => el.id_modulo}
             />

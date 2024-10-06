@@ -4,9 +4,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { CustomHeaderStyle, CustomDrawerContent } from './DrawerStyle';
 
 //Main Screen
-import Module1M from '../screens/HomeScreen/MainScreen/Module1/Module1';
+import ModuleM from '../screens/HomeScreen/MainScreen/MainScreen';
 // Glossary Screen
-import Module1G from '../screens/HomeScreen/GlossaryScreen/Module1/Module1';
+import ModuleG from '../screens/HomeScreen/GlossaryScreen/GlossaryScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,11 +17,12 @@ const DrawerNavigation = ({ isGlossary }) => {
       screenOptions={CustomHeaderStyle} // Usa os estilos importados
     >
       {isGlossary ? (
-        <Drawer.Screen name="MODÚLO I" component={Module1G} />
+        <Drawer.Screen name="MODÚLO I" component={ModuleG} initialParams={{ modulo: 1 }} />
+
       ) : (
-        <Drawer.Screen name="MODÚLO I" component={Module1M} />
+        <Drawer.Screen name="MODÚLO I" component={ModuleM} />
       )}
-      {/* Adicione mais telas se necessário */}
+
     </Drawer.Navigator>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
-//Navigators
+// Navigators
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './navigation/AppNavigator';
 
-//Font Roboto
+// Font Roboto
 import { FontProvider } from './styles/fonts';
 
 const App = () => {

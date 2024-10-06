@@ -27,7 +27,6 @@ const getUserStatus = async (id) => {
                                                         JSON_OBJECT(
                                                             'id_categoria', c.i_id_categoria,
                                                             'nome_categoria', c.s_nome_categoria,
-                                                            'imagem_categoria', c.s_imagem_categoria,
                                                             'status_categoria', cu.i_progresso_categoria
                                                         )
                                                     )
