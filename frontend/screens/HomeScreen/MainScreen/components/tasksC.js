@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { View, Text, useWindowDimensions, TouchableOpacity, Image } from "react-native";
 
 //Styles
@@ -15,7 +15,7 @@ const TaskC = ({ item }) => {
     const haveStatus = item.status_categoria || 0;
 
     const titulo = item.nome_categoria;
-    
+
     return (
         <View
             style={[Styles.categoryContainer, { width }]}>

@@ -19,7 +19,8 @@ const Styles = StyleSheet.create({
         flexDirection: 'row',
         width: "100%",
         height: isTablet ? 90 : 50,
-        marginBottom:15
+        marginBottom:15,
+        paddingHorizontal:20
     },
 
     favoriteWrapper: {

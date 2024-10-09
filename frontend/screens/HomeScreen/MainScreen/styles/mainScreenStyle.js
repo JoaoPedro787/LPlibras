@@ -7,7 +7,7 @@ const Styles = StyleSheet.create({
     bgContainer:{
         flex:1,
         backgroundColor:Colors.LightBlue,
-        paddingBottom:90
+        paddingBottom:85
     },
 
     title: {
@@ -25,7 +25,7 @@ const Styles = StyleSheet.create({
         flexDirection: 'row',
         width: "100%",
         height: isTablet ? 90 : 50,
-        marginBottom:15
+        marginBottom:15,
     },
 
     favoriteWrapper: {

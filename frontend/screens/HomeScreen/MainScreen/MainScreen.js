@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { SafeAreaView, FlatList, ActivityIndicator, View } from "react-native";
+import { SafeAreaView, FlatList, ActivityIndicator, View, ImageBackground } from "react-native";
 
 // Styles
 import Styles from "./styles/mainScreenStyle";
@@ -25,35 +25,41 @@ const MainScreen = ({ route }) => {
 
     return (
         <SafeAreaView style={Styles.bgContainer}>
-            {isLoading
-                ?
-                <ActivityIndicator
-                    size={'large'}
-                    color={Colors.Orange}
-                    style={{ flex: 1 }}
-                />
-                : (
-                    <View
-                        style={{ flex: 1 }}>
-                        <FlatList
-                            data={formatedData}
-                            horizontal={true}
-                            pagingEnabled
-                            onMomentumScrollEnd={(event) => {
-                                const index = Math.floor(
-                                    event.nativeEvent.contentOffset.x /
-                                    event.nativeEvent.layoutMeasurement.width
-                                );
+            <ImageBackground
+            source={require('../../../assets/images/global/bgImage.png')}
+            imageStyle={{opacity:0.3}}
+            style={{flex:1}}>
 
-                                setIndex(index);
-                            }}
-                            showsHorizontalScrollIndicator={false}
-                            renderItem={({ item }) => <TaskC item={item} />}
-                            keyExtractor={(el) => el.i_id_glossario}
-                        />
-                        <PaginatorC data={formatedData} currentIndex={currentIndex} />
-                    </View>
-                )}
+                {isLoading
+                    ?
+                    <ActivityIndicator
+                        size={'large'}
+                        color={Colors.Orange}
+                        style={{ flex: 1 }}
+                    />
+                    : (
+                        <View
+                            style={{ flex: 1 }}>
+                            <FlatList
+                                data={formatedData}
+                                horizontal={true}
+                                pagingEnabled
+                                onMomentumScrollEnd={(event) => {
+                                    const index = Math.floor(
+                                        event.nativeEvent.contentOffset.x /
+                                        event.nativeEvent.layoutMeasurement.width
+                                    );
+
+                                    setIndex(index);
+                                }}
+                                showsHorizontalScrollIndicator={false}
+                                renderItem={({ item }) => <TaskC item={item} />}
+                                keyExtractor={(item) => item.id_categoria}
+                            />
+                            <PaginatorC data={formatedData} currentIndex={currentIndex} />
+                        </View>
+                    )}
+            </ImageBackground>
         </SafeAreaView>
     );
 };
