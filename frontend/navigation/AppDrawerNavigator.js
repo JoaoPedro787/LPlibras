@@ -20,7 +20,10 @@ const DrawerNavigation = ({ isGlossary }) => {
         <Drawer.Screen name="MODÚLO I" component={ModuleG} initialParams={{ modulo: 1 }} />
 
       ) : (
-        <Drawer.Screen name="MODÚLO I" component={ModuleM} />
+        <>
+        <Drawer.Screen name="MODÚLO I" component={ModuleM} initialParams={{ modulo: 1 }} />
+        <Drawer.Screen name="MODÚLO II" component={ModuleM} initialParams={{ modulo: 2 }} />
+        </>
       )}
 
     </Drawer.Navigator>

@@ -17,7 +17,8 @@ const Styles = StyleSheet.create({
     },
     email_usuario: {
         ...(isTablet ? Texts.f32 : Texts.f24),
-        color: Colors.Orange
+        color: Colors.Orange,
+        textDecorationLine:'underline'
     }
 })
 

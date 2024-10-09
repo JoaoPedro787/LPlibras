@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ImageBackground } from "react-native";
 
 //Styles
 import { LinearGradient } from "expo-linear-gradient";
@@ -32,7 +32,11 @@ export default class ModuloC extends Component {
                     const statusText = el.status_categoria != null ? `${el.status_categoria}%` : null;
 
                     return (
-                        <View style={Styles.taskContainer} key={el.id_categoria}>
+                        <ImageBackground 
+                        style={Styles.taskContainer} key={el.id_categoria}
+                        imageStyle={{opacity:0.25}}
+                        source={require('../../../../assets/images/global/bgImage.png')}
+                        >
                             <View style={Styles.taskImageContainer}>
                                 {/* Se tiver barra de progresso, renderiza imagem */}
                                 {statusText ? (
@@ -70,7 +74,7 @@ export default class ModuloC extends Component {
                                     />
                                 </View>
                             </View>
-                        </View>
+                        </ImageBackground>
                     );
                 })}
             </View>

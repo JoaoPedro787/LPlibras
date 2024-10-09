@@ -1,6 +1,6 @@
 import React from "react";
 import { isTablet } from "../../../../utils/utils";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image, ImageBackground } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from '@react-navigation/native';
 
@@ -31,42 +31,48 @@ const images = (image) => {
 
 const ProfileSection = ({ item, profile }) => {
     const navigation = useNavigation();
-    
+
     return (
         <View style={Styles.ProfileInfoContainer}>
-            <LinearGradient
-                style={{ flex: 1, width: '100%', height: '100%' }}
-                colors={Colors.ProfileGradient}
-            >
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Seleção de foto de perfil')}
-                    style={{ paddingTop: 35, alignSelf: "flex-end", marginRight: 15 }}
-                >
-                    {/* Editar perfil */}
-                    <AntDesign name="edit" size={isTablet ? 50 : 30} color={Colors.Orange} />
-                </TouchableOpacity>
+            <ImageBackground
+                source={require('../../../../assets/images/global/bgImage.png')}
+                style={{ flex: 1, width: '100%', height: '100%' }}>
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                    <View
-                        style={{
-                            width: '80%',
-                            height: '80%',
-                            aspectRatio: 1,
-                            borderRadius: 9999,
-                            overflow: 'hidden',
-                            backgroundColor: '#FFF',
-                            alignItems: "center",
-                            justifyContent: "center",
-                        }}
+                <LinearGradient
+                    style={{ flex: 1, width: '100%', height: '100%' }}
+                    colors={Colors.ProfileGradient}
+                >
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Seleção de foto de perfil')}
+                        style={{ paddingTop: 35, alignSelf: "flex-end", marginRight: 15 }}
                     >
-                        {/* Imagem de perfil  */}
-                        <Image
-                            source={images(profile)}
-                            style={{ width: "120%", height: '120%' }}
-                        />
+                        {/* Editar perfil */}
+                        <AntDesign name="edit" size={isTablet ? 50 : 30} color={Colors.Orange} />
+                    </TouchableOpacity>
+
+                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <View
+                            style={{
+                                width: '80%',
+                                height: '80%',
+                                aspectRatio: 1,
+                                borderRadius: 9999,
+                                overflow: 'hidden',
+                                backgroundColor: '#FFF',
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            {/* Imagem de perfil  */}
+                            <Image
+                                source={images(profile)}
+                                style={{ width: "120%", height: '120%' }}
+                            />
+                        </View>
                     </View>
-                </View>
-            </LinearGradient>
+                </LinearGradient>
+
+            </ImageBackground>
 
             {/* Informações sobre o usuario */}
             <View style={{ height: 'auto', width: "100%", marginVertical: 10, paddingHorizontal: 20 }}>
