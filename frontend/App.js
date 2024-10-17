@@ -1,7 +1,7 @@
 import React from 'react';
 // Navigators
 import { NavigationContainer } from '@react-navigation/native';
-import AppNavigator from './navigation/AppNavigator';
+import AppNavigator from './navigation/Stack/AppNavigator';
 
 // Font Roboto
 import { FontProvider } from './styles/fonts';

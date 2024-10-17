@@ -31,9 +31,9 @@ export const UserInfoProvider = ({ children }) => {
 
   // Separando os dados
   useEffect(() => {
-    if (data.length > 0) {
-      setProgressData(data[1].modulos);
-      setUserData(data[0].usuario);
+    if (data) {
+      setProgressData(data.modulos);
+      setUserData(data.usuario);
     }
   }, [data]);
 

@@ -19,7 +19,7 @@ const TaskC = ({ item }) => {
     return (
         <View
             style={[Styles.categoryContainer, { width }]}>
-            <View
+            <TouchableOpacity
                 style={Styles.categoryWrapper}>
 
                 {/* Imagem da categoria */}
@@ -59,10 +59,10 @@ const TaskC = ({ item }) => {
                     </View>
                 </View>
 
-            </View>
+            </TouchableOpacity>
 
-            {/* Botão para escrever */}
-            <TouchableOpacity
+            {/* View de escrever */}
+            <View
                 style={Styles.TouchableContainer}
             >
 
@@ -77,7 +77,7 @@ const TaskC = ({ item }) => {
                     style={{ width: '100%', height: '100%' }}
                 />
 
-            </TouchableOpacity>
+            </View>
         </View>
     );
 };

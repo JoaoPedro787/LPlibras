@@ -1,4 +1,4 @@
-import AppTabNavigator from "../../navigation/AppTabNavigator";
+import AppTabNavigator from "../../navigation/Tab/AppTabNavigator";
 
 const HomeScreen = () => {
     return (

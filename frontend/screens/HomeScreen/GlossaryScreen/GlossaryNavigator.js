@@ -1,5 +1,5 @@
 import React from "react";
-import DrawerNavigation from "../../../navigation/AppDrawerNavigator";
+import DrawerNavigation from "../../../navigation/Drawer/AppDrawerNavigator";
 
 const GlossaryScreen = () => {
     return (

@@ -1,11 +1,11 @@
-import { isTablet } from "../utils/utils";
-import Colors from "../styles/colors";
+import { isTablet } from "../../../utils/utils";
+import Colors from "../../../styles/colors";
 
 export default TabHeaderStyle = {
     tabBarLabel: () => null,
     tabBarStyle: {
       position: 'absolute',
-      marginLeft: '5%',
+      marginLeft: '5%', 
       backgroundColor: Colors.Orange,
       borderRadius: 30,
       bottom: 15,

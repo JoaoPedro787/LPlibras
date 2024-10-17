@@ -7,7 +7,6 @@ const Styles = StyleSheet.create({
     bgContainer:{
         flex:1,
         backgroundColor:Colors.LightBlue,
-        paddingBottom:85
     },
 
     title: {

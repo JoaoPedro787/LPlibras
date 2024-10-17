@@ -1,17 +1,17 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { isTablet } from '../utils/utils';
+import { isTablet } from '../../utils/utils';
 import { FontAwesome } from '@expo/vector-icons'; // Importa FontAwesome
 
 // Style
-import TabHeaderStyle from './TabStyle';
+import TabHeaderStyle from './styles/TabStyle';
 
 // Telas
-import MainScreenNavigator from '../screens/HomeScreen/MainScreen/MainScreenNavigator';
-import ProfileScreen from '../screens/HomeScreen/ProfileScreen/ProfileScreen';
-import GlossaryNavigator from '../screens/HomeScreen/GlossaryScreen/GlossaryNavigator';
+import MainScreenNavigator from '../../screens/HomeScreen/MainScreen/MainScreenNavigator';
+import ProfileScreen from '../../screens/HomeScreen/ProfileScreen/ProfileScreen';
+import GlossaryNavigator from '../../screens/HomeScreen/GlossaryScreen/GlossaryNavigator';
 
 
-import { UserInfoProvider } from '../contexts/userInfoContext';
+import { UserInfoProvider } from '../../contexts/userInfoContext';
 
 
 // Estilo para os ícones

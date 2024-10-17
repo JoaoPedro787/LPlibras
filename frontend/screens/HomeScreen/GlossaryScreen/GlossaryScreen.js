@@ -39,12 +39,12 @@ const ModuleG = ({ route }) => {
 
     return (
         // Cor
-        <SafeAreaView style={[Containers.ContainerBgHome,{paddingBottom:85,}]}>
+        <SafeAreaView style={Containers.ContainerBgHome}>
 
             <ImageBackground
-            style={{flex:1}}
-            imageStyle={{opacity:0.3}}
-            source={require('../../../assets/images/global/bgImage.png')}
+                style={{ flex: 1, paddingBottom: 85 }}
+                imageStyle={{ opacity: 0.3 }}
+                source={require('../../../assets/images/global/bgImage.png')}
             >
 
                 {loading
@@ -84,7 +84,7 @@ const ModuleG = ({ route }) => {
                         {/* Lista de elementos */}
                         <FlatList
                             data={data}
-                            contentContainerStyle={{ gap: 30, paddingHorizontal:20 }}
+                            contentContainerStyle={{ gap: 30, paddingHorizontal: 20 }}
                             keyExtractor={(el) => el.i_id_glossario}
                             renderItem={(item) => <CardC item={item.item} onPress={updateFavorite} checked={checked} />}
                             showsVerticalScrollIndicator={false}

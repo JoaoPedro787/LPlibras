@@ -19,16 +19,17 @@ const MainScreen = ({ route }) => {
 
     const { modulo } = route.params;
 
-    const formatedData = progressData
-        .filter((item) => item.id_modulo === modulo)
-        .flatMap((item) => item.categorias.map((item) => item));
+    const formatedData = !isLoading && progressData.length > 0
+        ? progressData.filter((item) => item.id_modulo === modulo)
+            .flatMap((item) => item.categorias)
+        : [];
 
     return (
         <SafeAreaView style={Styles.bgContainer}>
             <ImageBackground
-            source={require('../../../assets/images/global/bgImage.png')}
-            imageStyle={{opacity:0.3}}
-            style={{flex:1}}>
+                source={require('../../../assets/images/global/bgImage.png')}
+                imageStyle={{ opacity: 0.3 }}
+                style={{ flex: 1, paddingBottom: 85 }}>
 
                 {isLoading
                     ?
