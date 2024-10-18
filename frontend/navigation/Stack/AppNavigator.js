@@ -7,6 +7,7 @@ import SignUp from '../../screens/SignUpLogin/SignUp';
 import Login from '../../screens/SignUpLogin/Login';
 import ProfilePictureSelection from '../../screens/ProfilePictureSelection/ProfilePictureSelection';
 import HomeScreen from '../../screens/HomeScreen/HomeScreen';
+import PhaseDrawer from '../PhaseDrawer/drawerNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,12 @@ const AppNavigator = () => {
       name="HomeScreen"
       component={HomeScreen}
       options={{ headerShown: false }}>
+      </Stack.Screen>
+
+      <Stack.Screen
+      name="Phase"
+      options={{ headerShown: false }}>
+        {(props)=>(<PhaseDrawer {...props}/>)}
       </Stack.Screen>
       
     </Stack.Navigator>

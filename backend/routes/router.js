@@ -12,16 +12,22 @@ const userStatusController = require('../controllers/userStatusController');
 //Glossary
 const glossaryController = require('../controllers/glossaryController');
 
+// SubCategory
+const SubCategoryController = require('../controllers/subCategoryController');
+
 //User
 router.post('/user', userMiddleWare.signInBodyValidation, userController.newUser);
-router.post('/user/check', userMiddleWare.loginBodyValidation, userController.userCheck)
+router.post('/user/check', userMiddleWare.loginBodyValidation, userController.userCheck);
 router.get('/user/:id', userController.getUser)
-router.put('/user/:id', userMiddleWare.signInBodyValidation, userController.updateUser)
+router.put('/user/:id', userMiddleWare.signInBodyValidation, userController.updateUser);
 
 //UserStatus
-router.get('/user/:id/status', userStatusController.getUserStatus)
+router.get('/user/:id/status', userStatusController.getUserStatus);
 
 // Glossary
-router.get('/glossary/:id', glossaryController.getGlossaryByModule)
+router.get('/glossary/:id', glossaryController.getGlossaryByModule);
+
+// SubCategory
+router.get('/category/:id/subcategory', SubCategoryController.getSubCategories);
 
 module.exports = router;

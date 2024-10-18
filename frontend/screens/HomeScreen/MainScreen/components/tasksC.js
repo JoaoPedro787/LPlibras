@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, useWindowDimensions, TouchableOpacity, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 //Styles
 import Styles from "../styles/taskCstyle";
@@ -10,16 +11,21 @@ import Colors from "../../../../styles/colors";
 import { imagesPath } from "../../globalUtils/getCategoryImages";
 
 const TaskC = ({ item }) => {
+    const navigation = useNavigation();
+
     const { width } = useWindowDimensions();
 
     const haveStatus = item.status_categoria || 0;
 
     const titulo = item.nome_categoria;
 
+    const id = item.id_categoria;
+
     return (
         <View
             style={[Styles.categoryContainer, { width }]}>
             <TouchableOpacity
+                onPress={() => navigation.navigate('Phase', { title: titulo, id: id })}
                 style={Styles.categoryWrapper}>
 
                 {/* Imagem da categoria */}
