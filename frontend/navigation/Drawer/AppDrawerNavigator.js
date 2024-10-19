@@ -14,6 +14,7 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigation = ({ isGlossary }) => {
   return (
     <Drawer.Navigator
+      defaultStatus="closed"
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={CustomHeaderStyle} // Usa os estilos importados
     >
@@ -22,7 +23,7 @@ const DrawerNavigation = ({ isGlossary }) => {
 
       ) : (
         <>
-        <Drawer.Screen name="MODÚLO I" component={ModuleM} initialParams={{ modulo: 1 }} />
+          <Drawer.Screen name="MODÚLO I" component={ModuleM} initialParams={{ modulo: 1 }} />
         </>
       )}
 

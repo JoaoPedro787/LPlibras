@@ -1,68 +1,51 @@
-import React, { useState, useEffect } from 'react'
-import { ActivityIndicator, SafeAreaView, ScrollView, useWindowDimensions } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { SafeAreaView, ScrollView, useWindowDimensions } from 'react-native';
 
 //Classes
 import { IntroductionC } from './components/IntroductionC';
 import { StagePages } from './components/stagePages';
 
-// Hooks
-import { FetchData } from './hooks/fetchData';
-
-//Styles
-import Colors from '../../styles/colors';
-
-const Phase = ({ route, drawerHandler }) => {
+const Phase = ({ route, drawerHandler, data, currentIndex }) => {
     // Largura da tela
     const { width } = useWindowDimensions();
 
     // Pegando dados da rota
-    const { title, id } = route.params;
+    const { title } = route.params;
 
-    //State
-    const [currentIndex, setIndex] = useState(0);
+    // useRef para o ScrollView
+    const scroll = useRef();
 
-    // data
-    const { isLoading, data } = FetchData(id);
-
+    // Rolando o ScrollView para a posição do currentIndex quando o componente monta
     useEffect(() => {
-        if (currentIndex === 1) {
-            drawerHandler();
+        if (scroll.current) {
+            scroll.current.scrollTo({ x: currentIndex * width, animated: false });
         }
-    }, [currentIndex])
+    }, [currentIndex, width]);
 
     return (
-        <SafeAreaView
-            style={{ flex: 1 }}>
-            {isLoading
-                ?
-                <ActivityIndicator
-                    size={'large'}
-                    style={{ flex: 1 }}
-                    color={Colors.Blue}
-                />
-                :
-                <ScrollView
-                    style={{ flex: 1 }}
-                    scrollEnabled={(currentIndex === 1 ? false : true)}
-                    pagingEnabled
-                    horizontal={true}
-                    onMomentumScrollEnd={(evt) => {
-                        const offSet = evt.nativeEvent.contentOffset.x;
-                        const layout = evt.nativeEvent.layoutMeasurement.width;
+        <SafeAreaView style={{ flex: 1 }}>
+            <ScrollView
+                ref={scroll}
+                style={{ flex: 1 }}
+                scrollEnabled={currentIndex === 1 ? false : true}
+                pagingEnabled
+                horizontal={true}
+                onMomentumScrollEnd={(evt) => {
+                    const offSet = evt.nativeEvent.contentOffset.x;
+                    const layout = evt.nativeEvent.layoutMeasurement.width;
+                    const index = offSet / layout;
 
-                        setIndex(offSet / layout);
-                    }}
-                >
-                    {/* Introdução a categoria */}
-                    <IntroductionC data={title} width={width} />
+                    drawerHandler(index);
+                }}
+            >
+                {/* Introdução a categoria */}
+                <IntroductionC data={title} width={width} />
 
-                    <StagePages width={width} data={data} />
+                <StagePages width={width} item={data} />
 
-                </ScrollView>
-            }
-
+            </ScrollView>
         </SafeAreaView>
-    )
+    );
 };
 
 export default Phase;

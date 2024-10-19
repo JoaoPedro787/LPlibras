@@ -8,6 +8,7 @@ import Login from '../../screens/SignUpLogin/Login';
 import ProfilePictureSelection from '../../screens/ProfilePictureSelection/ProfilePictureSelection';
 import HomeScreen from '../../screens/HomeScreen/HomeScreen';
 import PhaseDrawer from '../PhaseDrawer/drawerNavigation';
+import Phase from '../../screens/Phases/Phase';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,8 +43,8 @@ const AppNavigator = () => {
 
       <Stack.Screen
       name="Phase"
+      component={PhaseDrawer}
       options={{ headerShown: false }}>
-        {(props)=>(<PhaseDrawer {...props}/>)}
       </Stack.Screen>
       
     </Stack.Navigator>
