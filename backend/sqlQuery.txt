@@ -1,0 +1,130 @@
+CREATE DATABASE IF NOT EXISTS lplibras;
+
+USE lplibras;
+
+CREATE TABLE IF NOT EXISTS usuario (
+    i_id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    s_nome_usuario VARCHAR(255) NOT NULL,
+    s_email_usuario VARCHAR(255) NOT NULL UNIQUE,
+    s_senha_usuario VARCHAR(255) NOT NULL,
+    s_fotoPerfil_usuario VARCHAR (255) DEFAULT 'ProfileBlue'
+);
+
+CREATE TABLE IF NOT EXISTS modulo (
+    i_id_modulo INT PRIMARY KEY AUTO_INCREMENT,
+    s_nome_modulo VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS categoria (
+    i_id_categoria INT PRIMARY KEY AUTO_INCREMENT,
+    i_id_modulo INT,
+    s_nome_categoria VARCHAR(255),
+    FOREIGN KEY (i_id_modulo) REFERENCES modulo(i_id_modulo)
+);
+
+CREATE TABLE IF NOT EXISTS subCategoria (
+    i_id_subCategoria INT PRIMARY KEY AUTO_INCREMENT,
+    i_id_categoria INT,
+    s_nome_subCategoria VARCHAR(255),
+    FOREIGN KEY (i_id_categoria) REFERENCES categoria(i_id_categoria)
+);
+
+CREATE TABLE IF NOT EXISTS fase (
+    i_id_fase INT PRIMARY KEY AUTO_INCREMENT,
+    i_id_subCategoria INT,
+    s_nome_fase VARCHAR(255),
+    i_tipo_fase INT,
+    FOREIGN KEY (i_id_subCategoria) REFERENCES subCategoria(i_id_subCategoria)
+);
+
+CREATE TABLE IF NOT EXISTS atividade (
+    i_id_atividade INT PRIMARY KEY AUTO_INCREMENT,
+    i_id_fase INT,
+    s_nome_atividade VARCHAR(255),
+    FOREIGN KEY (i_id_fase) REFERENCES fase(i_id_fase)
+);
+
+CREATE TABLE IF NOT EXISTS pergunta (
+    i_id_pergunta INT PRIMARY KEY AUTO_INCREMENT,
+    i_id_atividade INT,
+    s_nome_pergunta VARCHAR(255),
+    FOREIGN KEY (i_id_atividade) REFERENCES atividade(i_id_atividade)
+);
+
+CREATE TABLE IF NOT EXISTS resposta (
+    i_id_resposta INT PRIMARY KEY AUTO_INCREMENT,
+    i_id_pergunta INT,
+    s_nome_resposta VARCHAR(255),
+    s_imagem_resposta VARCHAR(255),
+    FOREIGN KEY (i_id_pergunta) REFERENCES pergunta(i_id_pergunta)
+);
+
+CREATE TABLE IF NOT EXISTS glossario (
+    i_id_glossario INT PRIMARY KEY AUTO_INCREMENT,
+    i_id_modulo INT,
+    s_nome_glossario VARCHAR(255),
+    FOREIGN KEY (i_id_modulo) REFERENCES modulo(i_id_modulo)
+);
+
+CREATE TABLE IF NOT EXISTS statusUsuario (
+    i_id_statusUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    i_id_usuario INT,
+    i_id_modulo INT DEFAULT 1,
+    i_id_categoria INT DEFAULT 1,
+    i_id_fase INT DEFAULT 1,
+    FOREIGN KEY (i_id_usuario) REFERENCES usuario(i_id_usuario),
+    FOREIGN KEY (i_id_modulo) REFERENCES modulo(i_id_modulo),
+    FOREIGN KEY (i_id_categoria) REFERENCES categoria(i_id_categoria),
+    FOREIGN KEY (i_id_fase) REFERENCES fase(i_id_fase)
+);
+
+INSERT INTO modulo (s_nome_modulo) VALUES 
+('Módulo 1');
+
+INSERT INTO categoria (i_id_modulo, s_nome_categoria)
+VALUES 
+(1, 'Alimentos'),
+(1, 'Escola');
+
+INSERT INTO subCategoria(i_id_categoria,s_nome_subCategoria) 
+VALUES 
+(1,'Frutas'),
+(1,'Legumes'),
+(2,'Professores');
+
+INSERT INTO fase (i_id_subCategoria,i_tipo_fase) 
+VALUES 
+(1,1),
+(1,2),
+(1,2),
+(1,2),
+(2,1),
+(2,2),
+(2,2),
+(2,2),
+(3,1),
+(3,2),
+(3,2),
+(3,2);
+
+INSERT INTO glossario (i_id_modulo, s_nome_glossario)
+VALUES
+(1, 'banana'),
+(1, 'cacho de banana'),
+(1, 'frutas'),
+(1, 'laranja'),
+(1, 'maçã'),
+(1, 'mamão'),
+(1, 'manga'),
+(1, 'melancia'),
+(1, 'morango'),
+(1, 'uva');
+
+CREATE TABLE IF NOT EXISTS categoriaUsuario (
+    i_id_categoriaUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    i_id_usuario INT,
+    i_id_categoria INT,
+    i_progresso_categoria INT DEFAULT 0,
+    FOREIGN KEY (i_id_usuario) REFERENCES usuario(i_id_usuario),
+    FOREIGN KEY (i_id_categoria) REFERENCES categoria(i_id_categoria)
+);
