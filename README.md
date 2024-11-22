@@ -1,20 +1,57 @@
-## TCC: Aplicativo de Ensino de Português para Surdos
+## Final Project: Portuguese Teaching App for the Deaf
 
-Este repositório contém o projeto do meu Trabalho de Conclusão de Curso (TCC), desenvolvido em **React Native**, com o objetivo de criar uma aplicação interativa para o ensino de português a pessoas surdas. O aplicativo foi projetado para tornar o aprendizado acessível e inclusivo, utilizando recursos visuais e estratégias que facilitam a compreensão e prática do idioma.
+This repository contains the project for my Final Graduation Project (TCC), developed in **React Native**, with the goal of creating an interactive application to teach Portuguese to the deaf community. The app was designed to make learning accessible and inclusive by using visual resources and strategies that facilitate the understanding and practice of the language.
 
-### Principais Funcionalidades
+### Key Features
 
-- Interface acessível e intuitiva.
-- Recursos visuais e interativos para facilitar o aprendizado.
-- Exercícios e atividades personalizadas para o público-alvo.
+- Accessible and intuitive interface.
+- Visual and interactive resources to ease learning.
+- Customized exercises and activities for the target audience.
 
-### Tecnologias Utilizadas
+---
+
+### Technologies Used
 
 - **React Native**  
 - **Expo**  
-- **MySql**
+- **MySQL**  
 - **Node API**
 
-### Objetivo
+---
 
-O objetivo principal deste projeto é promover a inclusão e criar ferramentas educacionais que contribuam para a autonomia e aprendizado da comunidade surda.
+### Requirements
+
+- **Android Studio or Expo Go**
+- **Create the local database using the sqlquery.txt file**
+
+1. **Clone the repository**
+   
+```bash
+git clone https://github.com/JoaoPedro787/LPlibras.git
+```
+
+2. **Install backend dependencies**
+```bash
+cd LPlibras
+cd backend
+npm install
+```
+
+3. **Install frontend dependencies**
+```bash
+cd LPlibras
+cd frontend
+npm install
+```
+
+4. **Start the project**
+
+```bash
+npm start
+```
+
+### Objective
+
+The main goal of this project is to promote inclusion and create educational tools that contribute to the autonomy and learning of the deaf community.
+
+---
