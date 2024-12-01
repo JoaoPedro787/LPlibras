@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, TouchableOpacity, View, Image, FlatList, Text } from "react-native";
 import Colors from "../../../../styles/colors";
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { getImages } from "../src/getImages";
+import { getImages } from "../../../../utils/getGlossaryImages";
 import Texts from "../../../../src/components/texts";
 
 const ModalC = ({ modalValue, handleClose, data }) => {

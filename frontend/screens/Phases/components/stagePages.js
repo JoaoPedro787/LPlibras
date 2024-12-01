@@ -1,11 +1,14 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Colors from "../../../styles/colors";
 import { Styles } from "../styles/stagePagesStyle";
 
-import { getImages } from "../../HomeScreen/GlossaryScreen/src/getImages";
+import { getImages } from "../../../utils/getGlossaryImages";
 
 const StagePages = ({ width, item }) => {
+    const navigation = useNavigation();
+
     return (
         <View style={{ width, backgroundColor: Colors.Blue }}>
             <View
@@ -29,6 +32,7 @@ const StagePages = ({ width, item }) => {
                 style={{ flex: 1, padding: 20, gap: 20 }}>
                 {item.fases.map((el) => (
                     <TouchableOpacity
+                        onPress={() => navigation.navigate('Game')}
                         style={{ flex: 1 }}
                         key={el.id}
                     >

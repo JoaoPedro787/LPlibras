@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 
 // Fun
@@ -10,10 +10,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Colors from "../../../../styles/colors";
 
 // Images
-import { getImages } from "../src/getImages";
-
-// Async
-import { storeFavorites, getUserFavorites } from "../../../../utils/AsyncStorageFunctions";
+import { getImages } from "../../../../utils/getGlossaryImages";
 
 const CardC = ({ item, onPress, checked }) => {
 

@@ -3,15 +3,18 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './navigation/Stack/AppNavigator';
 
-// Font Roboto
+// Provider
 import { FontProvider } from './styles/fonts';
+import ProgressProvider from './contexts/progressBarContext';
 
 const App = () => {
   return (
     <FontProvider>
-      <NavigationContainer>
-        <AppNavigator />
-      </NavigationContainer>
+      <ProgressProvider>
+        <NavigationContainer>
+          <AppNavigator />
+        </NavigationContainer>
+      </ProgressProvider>
     </FontProvider>
   );
 };
