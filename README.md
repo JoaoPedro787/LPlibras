@@ -1,4 +1,4 @@
-## Final Project: Portuguese Teaching App for the Deaf
+## Final Project (ETEC): Portuguese Teaching App for the Deaf
 
 This repository contains the project for my Final Graduation Project (TCC), developed in **React Native**, with the goal of creating an interactive application to teach Portuguese to the deaf community. The app was designed to make learning accessible and inclusive by using visual resources and strategies that facilitate the understanding and practice of the language.
 
